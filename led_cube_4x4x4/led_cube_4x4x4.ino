@@ -833,13 +833,7 @@ const PROGMEM unsigned char PatternTable[] = {
   B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, B0000, 0
 };
 
-/*
-** Defining pins in an array makes it easier to rearrange how the cube is wired.
-** Adjust the numbers here until the LEDs flash in order: left to right, top to bottom.
-** Note that analog inputs 0 through 5 are also digital outputs 14 through 19!
-** Pin DigitalOut0 (serial RX) and AnalogIn5 are left open for future apps.
-*/
-
+// Defining pins in an array makes it easier to rearrange how the cube is wired.
 int LEDPin[] = {12, 13, A5, A4, 11, 10, 9, 8, 4, 5, 6, 7, 3, 2, 1, 0};
 int PlanePin[] = {A0, A1, A2, A3};
 
@@ -885,7 +879,7 @@ void loop() {
         int ledpin = 0;
         for (int ledrow = 0; ledrow < EDGE_LENGTH; ledrow++) {
           for (int ledcol = 0; ledcol < EDGE_LENGTH; ledcol++) {
-            digitalWrite( LEDPin[ledpin], PatternBuf[patbufidx] & (1 << ledcol) ); //digitalWrite( LEDPin[ledpin], PatternBuf[patbufidx] & (1 << ledcol) );
+            digitalWrite( LEDPin[ledpin], PatternBuf[patbufidx] & (1 << ledcol) );
             ledpin++;
           }
           patbufidx++;
