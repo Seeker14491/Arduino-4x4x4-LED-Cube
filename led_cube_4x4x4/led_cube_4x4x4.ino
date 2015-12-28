@@ -899,3 +899,4 @@ void loop() {
   } while (RawPatternDuration > 0); // read patterns until we reach the dummy element
 }
 
+
